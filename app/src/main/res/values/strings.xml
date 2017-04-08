@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kamus Inggris Indonesia</string>
+    <string name="app_version">v1.0</string>
+    <string name="not_found">Not Found</string>
+    <string name="lang_id">Indonesia</string>
+    <string name="lang_en">Inggris</string>
+    <string name="search_bar_hint">Enter words here</string>
+    <string name="about_action_text">About</string>
+</resources>

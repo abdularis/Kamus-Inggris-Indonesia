@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical"
+    tools:context="com.paperplanes.mykamus.DictionaryActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/main_app_bar" />
+
+    <include
+        android:id="@+id/searchBar"
+        layout="@layout/search_bar" />
+
+    <TextView
+        android:id="@+id/msgTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:text="@string/not_found"
+        android:textStyle="bold"/>
+
+    <ListView
+        android:id="@+id/resultListView"
+        android:background="@drawable/edit_text_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:elevation="3dp"/>
+</LinearLayout>
