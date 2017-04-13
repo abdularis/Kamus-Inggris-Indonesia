@@ -11,7 +11,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DbHelper extends SQLiteAssetHelper {
 
-    public static final String DB_NAME = "kamus.db";
+    public static final String DB_NAME = "data.db";
     public static final int DB_VERSION = 1;
 
     public DbHelper(Context context) {

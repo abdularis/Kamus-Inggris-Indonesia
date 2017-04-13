@@ -9,15 +9,13 @@
     tools:context="com.paperplanes.mykamus.DictionaryActivity">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/main_app_bar" />
+        layout="@layout/partial_toolbar_main" />
 
     <include
-        android:id="@+id/searchBar"
-        layout="@layout/search_bar" />
+        layout="@layout/partial_search_bar" />
 
     <TextView
-        android:id="@+id/msgTextView"
+        android:id="@+id/text_msg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -26,8 +24,8 @@
         android:textStyle="bold"/>
 
     <ListView
-        android:id="@+id/resultListView"
-        android:background="@drawable/edit_text_background"
+        android:id="@+id/list_result"
+        android:background="@drawable/round_rectangle_bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"

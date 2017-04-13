@@ -10,4 +10,7 @@
     <color name="secondaryTextColor">#757575</color>
 
     <color name="transparent">#00ffffff</color>
+
+    <color name="switch_btn_pressed">#2783df</color>
+    <color name="clear_btn_pressed">#dfdfdf</color>
 </resources>

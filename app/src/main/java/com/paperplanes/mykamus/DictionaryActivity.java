@@ -1,5 +1,7 @@
 package com.paperplanes.mykamus;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +19,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class DictionaryActivity extends AppCompatActivity implements
-        TextWatcher, AdapterView.OnItemClickListener, Dictionary.SearchResultListener {
+public class DictionaryActivity extends AppCompatActivity
+        implements AdapterView.OnItemClickListener, Dictionary.SearchResultListener {
 
     private Dictionary mDictionary;
     private WordAdapter mWAdapter;
@@ -31,7 +33,7 @@ public class DictionaryActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dictionary);
 
-        Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar tb = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(tb);
         View switchBtn = findViewById(R.id.switchBtn);
         switchBtn.setOnClickListener(new View.OnClickListener() {
@@ -43,21 +45,32 @@ public class DictionaryActivity extends AppCompatActivity implements
 
         mSpeaker = new Speaker(this);
 
-        mMsgText = (TextView) findViewById(R.id.msgTextView);
+        mMsgText = (TextView) findViewById(R.id.text_msg);
 
         mDictionary = Dictionary.getInstance(this);
         mDictionary.open();
 
-        mWAdapter = new WordAdapter(this, R.layout.word_row_item);
+        mWAdapter = new WordAdapter(this, R.layout.item_word);
         mDictionary.addSearchResultListener(mWAdapter);
         mDictionary.addSearchResultListener(this);
 
-        ListView lv = (ListView) findViewById(R.id.resultListView);
+        ListView lv = (ListView) findViewById(R.id.list_result);
         lv.setAdapter(mWAdapter);
         lv.setOnItemClickListener(this);
 
-        final EditText keywordText = (EditText) findViewById(R.id.keywordEditText);
-        keywordText.addTextChangedListener(this);
+        final EditText keywordText = (EditText) findViewById(R.id.edit_search_keyword);
+        keywordText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                List<Word> res = mDictionary.search(s.toString().trim());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
 
         View clearKeywordBtn = findViewById(R.id.clearKeywordButton);
         clearKeywordBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +91,7 @@ public class DictionaryActivity extends AppCompatActivity implements
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.dictionary_activity_actions, menu);
+        inflater.inflate(R.menu.activity_dictionary, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -106,22 +119,19 @@ public class DictionaryActivity extends AppCompatActivity implements
             t1.setText(getResources().getText(R.string.lang_en));
             t2.setText(getResources().getText(R.string.lang_id));
         }
-    }
 
-    private void goToAbout() {
-        Intent intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
-    }
+        Animator anim = AnimatorInflater.loadAnimator(this, R.animator.fade_in);
+        anim.setTarget(t1);
+        anim.start();
 
-    @Override
-    public void afterTextChanged(Editable editable) {}
+        Animator anim2 = AnimatorInflater.loadAnimator(this, R.animator.fade_in);
+        anim2.setTarget(t2);
+        anim2.start();
 
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i1, int i2, int i3) {
-        List<Word> res = mDictionary.search(charSequence.toString().trim());
+        View switchBtn = findViewById(R.id.switchBtn);
+        Animator rotAnim = AnimatorInflater.loadAnimator(this, R.animator.rotation);
+        rotAnim.setTarget(switchBtn);
+        rotAnim.start();
     }
 
     @Override
@@ -143,5 +153,10 @@ public class DictionaryActivity extends AppCompatActivity implements
             mSpeaker.speak(w.getWord());
             mSpeaker.pause(1000);
         }
+    }
+
+    private void goToAbout() {
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
     }
 }

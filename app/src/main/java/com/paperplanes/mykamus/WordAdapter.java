@@ -27,38 +27,29 @@ public class WordAdapter extends ArrayAdapter<Word>
         mResId = resId;
     }
 
-    public Word getWord(int i) {
-        if (i >= 0 && i < mWords.size())
-            return mWords.get(i);
-        return null;
-    }
-
-    private class RowItemHolder {
-        TextView wordTextView;
-        TextView transTextView;
-    }
-
     @Override
     public View getView(int pos, View convertView, ViewGroup parent) {
 
         View row = convertView;
-        RowItemHolder holder;
+        RowHolder holder;
 
         if (row == null) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
             row = inflater.inflate(mResId, parent, false);
 
-            holder = new RowItemHolder();
-            holder.wordTextView = (TextView) row.findViewById(R.id.wordTextView);
-            holder.transTextView = (TextView) row.findViewById(R.id.transTextView);
+            holder = new RowHolder();
+            holder.wordTextView = (TextView) row.findViewById(R.id.text_item_word);
+            holder.transTextView = (TextView) row.findViewById(R.id.text_item_translation);
 
             row.setTag(holder);
         }
 
-        holder = (RowItemHolder) row.getTag();
+        holder = (RowHolder) row.getTag();
 
-        holder.wordTextView.setText(mWords.get(pos).getWord());
-        holder.transTextView.setText(mWords.get(pos).getTrans());
+        Word w = mWords.get(pos);
+
+        holder.wordTextView.setText(w.getWord());
+        holder.transTextView.setText(w.getTrans());
 
         return row;
     }
@@ -73,5 +64,17 @@ public class WordAdapter extends ArrayAdapter<Word>
     @Override
     public void onNotFound(String keyword) {
         this.clear();
+    }
+
+    public Word getWord(int i) {
+        if (i >= 0 && i < mWords.size())
+            return mWords.get(i);
+        return null;
+    }
+
+
+    private class RowHolder {
+        TextView wordTextView;
+        TextView transTextView;
     }
 }

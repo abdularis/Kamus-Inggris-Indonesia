@@ -1,4 +1,7 @@
-## Kamus Inggris Indonesia
+## Kamus Inggris Indonesia - Indonesia Inggris
+
 Screenshot
-![Screenshot 1](screenshot/1.png ""Screenshot1"")
-![Screenshot 2](screenshot/2.png ""Screenshot2"")
+
+![Screenshot 1](screenshot/1.png)
+
+![Screenshot 2](screenshot/2.png)

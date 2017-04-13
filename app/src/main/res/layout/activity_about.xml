@@ -8,7 +8,7 @@
     tools:context="com.paperplanes.mykamus.AboutActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar2"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -24,11 +24,11 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/icon_about"
+                android:id="@+id/image_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:src="@drawable/icon"/>
+                android:src="@drawable/ic_app_about"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -49,13 +49,13 @@
                 android:textColor="@color/secondaryTextColor"/>
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/image_developer"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="25dp"
                 android:layout_width="180dp"
                 android:layout_height="50dp"
-                app:srcCompat="@drawable/ic_org" />
+                app:srcCompat="@drawable/ic_dev" />
 
         </LinearLayout>
 
