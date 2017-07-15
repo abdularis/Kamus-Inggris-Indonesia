@@ -6,4 +6,13 @@
     <string name="lang_en">Inggris</string>
     <string name="search_bar_hint">Enter words here</string>
     <string name="about_action_text">About</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="about">About</string>
+
+    <string name="open_drawer">Open Navigation</string>
+    <string name="close_drawer">Close Navigation</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_item_dictionary"
+            android:icon="@drawable/ic_dictionary"
+            android:title="@string/dictionary"/>
+
+        <item
+            android:id="@+id/nav_item_bookmark"
+            android:icon="@drawable/ic_bookmark"
+            android:title="@string/bookmark"/>
+
+    </group>
+
+
+    <group
+        android:id="@+id/group2">
+
+        <item
+            android:id="@+id/nav_item_about"
+            android:icon="@drawable/ic_about"
+            android:title="@string/about"/>
+
+    </group>
+
+</menu>
