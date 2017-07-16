@@ -2,18 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/comm_margin_2"
+    android:paddingBottom="@dimen/comm_margin_2">
 
     <TextView
         android:id="@+id/text_item_word"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Word"
         android:textStyle="bold"
-        android:textSize="18dp"/>
+        android:textSize="@dimen/word_item_size"/>
 
     <TextView
         android:id="@+id/text_item_translation"
@@ -21,15 +22,26 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="@dimen/comm_margin_1"
         android:layout_below="@id/text_item_word"
         android:text="Translation" />
 
     <ImageView
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="3dp"
+        android:id="@+id/img_bookmark"
+        android:layout_width="@dimen/bookmark_item_btn_size"
+        android:layout_height="@dimen/bookmark_item_btn_size"
+        android:layout_marginRight="@dimen/comm_margin_1"
+        android:layout_alignParentRight="true"
         android:layout_above="@id/text_item_translation"
+        android:src="@drawable/ic_bookmark_clear"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"/>
+
+    <ImageView
+        android:layout_width="@dimen/speaker_item_ic_size"
+        android:layout_height="@dimen/speaker_item_ic_size"
+        android:layout_marginTop="@dimen/comm_margin_1"
         android:layout_toRightOf="@id/text_item_word"
-        app:srcCompat="@drawable/ic_speaker" />
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_speaker" />
 </RelativeLayout>

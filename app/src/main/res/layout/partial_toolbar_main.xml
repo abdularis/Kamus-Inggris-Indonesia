@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="2"
+            android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/lang_en"
             android:textAlignment="textEnd"
@@ -37,14 +37,14 @@
             android:layout_height="wrap_content"
             android:padding="7dp"
             android:background="@drawable/selector_switch_button"
-            android:src="@drawable/ic_switch"/>
+            android:src="@drawable/ic_arrow_right"/>
 
         <TextView
             android:id="@+id/langRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:layout_weight="2"
+            android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/lang_id"
             android:textAlignment="textStart"
@@ -52,5 +52,19 @@
             android:textSize="22sp" />
 
     </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="right">-->
+
+        <!--<ImageButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="8dp"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:src="@drawable/ic_delete"/>-->
+        <!---->
+    <!--</LinearLayout>-->
 
 </android.support.v7.widget.Toolbar>

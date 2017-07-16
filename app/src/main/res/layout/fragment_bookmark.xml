@@ -3,19 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.paperplanes.mykamus.BookmarkFragment">
+    android:background="@color/backgroundColor"
+    tools:context="com.paperplanes.mykamus.presentation.ui.fragment.BookmarkFragment">
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
+    <ListView
+        android:id="@+id/bookmark_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="fixed"
-        app:tabGravity="fill"/>
+        android:layout_marginBottom="@dimen/comm_margin_2"
+        android:layout_marginLeft="@dimen/comm_margin_2"
+        android:layout_marginRight="@dimen/comm_margin_2"
+        android:layout_marginTop="@dimen/comm_margin_1"
+        android:background="@drawable/round_rectangle_bg"
+        android:elevation="3dp"/>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/text_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
 </FrameLayout>

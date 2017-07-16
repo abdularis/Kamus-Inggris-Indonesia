@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="comm_margin_1">4dp</dimen>
+    <dimen name="comm_margin_2">6dp</dimen>
+    <dimen name="comm_margin_3">8dp</dimen>
+
     <dimen name="radius">3dp</dimen>
+    <dimen name="about_logo_size">140dp</dimen>
+    <dimen name="about_app_name_size">8pt</dimen>
+    <dimen name="word_item_size">8pt</dimen>
+    <dimen name="bookmark_item_btn_size">25dp</dimen>
+    <dimen name="speaker_item_ic_size">18dp</dimen>
 </resources>

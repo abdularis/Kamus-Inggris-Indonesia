@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.paperplanes.mykamus.DictionaryActivity">
+    tools:context="com.paperplanes.mykamus.presentation.ui.activity.DictionaryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
