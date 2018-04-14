@@ -1,13 +1,11 @@
 package com.paperplanes.mykamus.presentation.presenters;
 
-import android.util.Log;
 
 import com.paperplanes.mykamus.commons.Speaker;
 import com.paperplanes.mykamus.config.Config;
 import com.paperplanes.mykamus.domain.model.TranslationMode;
 import com.paperplanes.mykamus.domain.model.Word;
 import com.paperplanes.mykamus.domain.usecases.AddBookmarkUseCase;
-import com.paperplanes.mykamus.domain.usecases.GetBookmarksUseCase;
 import com.paperplanes.mykamus.domain.usecases.RemoveBookmarkUseCase;
 import com.paperplanes.mykamus.domain.usecases.SearchWordUseCase;
 import com.paperplanes.mykamus.domain.usecases.UseCase;
@@ -25,7 +23,6 @@ public class SearchPresenter {
     private SearchView mView;
     private UseCaseExecutor mCaseExecutor;
     private SearchWordUseCase mSearchWordUseCase;
-    private GetBookmarksUseCase mGetBookmarksUseCase;
     private AddBookmarkUseCase mAddBookmarkUseCase;
     private RemoveBookmarkUseCase mRemoveBookmarkUseCase;
     private Speaker mSpeaker;
@@ -36,14 +33,12 @@ public class SearchPresenter {
     @Inject
     public SearchPresenter(UseCaseExecutor caseExecutor,
                            SearchWordUseCase searchWordUseCase,
-                           GetBookmarksUseCase getBookmarksUseCase,
                            AddBookmarkUseCase addBookmarkUseCase,
                            RemoveBookmarkUseCase removeBookmarkUseCase,
                            Speaker speaker,
                            Config config) {
         mCaseExecutor = caseExecutor;
         mSearchWordUseCase = searchWordUseCase;
-        mGetBookmarksUseCase = getBookmarksUseCase;
         mAddBookmarkUseCase = addBookmarkUseCase;
         mRemoveBookmarkUseCase = removeBookmarkUseCase;
         mSpeaker = speaker;
@@ -108,27 +103,11 @@ public class SearchPresenter {
     public void toggleBookmark(Word word) {
         if (word.isBookmarked()) {
             mRemoveBookmarkUseCase.setParams(new RemoveBookmarkUseCase.Params(word, mCurrTransMode));
-            mCaseExecutor.execute(mRemoveBookmarkUseCase, new UseCase.Callback<RemoveBookmarkUseCase.Result>() {
-                @Override
-                public void onSuccess(RemoveBookmarkUseCase.Result result) {
-                }
-
-                @Override
-                public void onFailed(Throwable err) {
-                }
-            });
+            mCaseExecutor.execute(mRemoveBookmarkUseCase, new UseCase.CbAdapter<RemoveBookmarkUseCase.Result>());
         }
         else {
             mAddBookmarkUseCase.setParams(new AddBookmarkUseCase.Params(word, mCurrTransMode));
-            mCaseExecutor.execute(mAddBookmarkUseCase, new UseCase.Callback<AddBookmarkUseCase.Result>() {
-                @Override
-                public void onSuccess(AddBookmarkUseCase.Result result) {
-                }
-
-                @Override
-                public void onFailed(Throwable err) {
-                }
-            });
+            mCaseExecutor.execute(mAddBookmarkUseCase, new UseCase.CbAdapter<AddBookmarkUseCase.Result>());
         }
     }
 

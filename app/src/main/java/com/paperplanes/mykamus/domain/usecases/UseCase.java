@@ -36,6 +36,14 @@ public abstract class UseCase<P extends UseCase.Params, O extends UseCase.Result
         void onFailed(Throwable err);
     }
 
+    public static class CbAdapter<O extends Result> implements Callback<O> {
+        @Override
+        public void onSuccess(O result) {}
+
+        @Override
+        public void onFailed(Throwable err) {}
+    }
+
     public interface Params {}
     public interface Result {}
 }
